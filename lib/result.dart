@@ -24,26 +24,41 @@ class Result extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          Text(
-            resultPhrase,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 36,
-              fontWeight: FontWeight.bold,
-              fontFamily: "RobotoMono",
+    return Container(
+      width: double.infinity, // full width of the screen
+      margin: const EdgeInsets.all(25),
+      child: Center(
+        child: Column(
+          children: [
+            Text(
+              resultPhrase,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 36,
+                //fontWeight: FontWeight.bold,
+                //fontFamily: "RobotoMono",
+              ),
             ),
-          ),
-          // ignore: deprecated_member_use
-          FlatButton(
-            color: Colors.black,
-            child: const Text("Restart Quiz!"),
-            textColor: Colors.white,
-            onPressed: resetQuiz,
-          ),
-        ],
+            Container(
+              width: double.infinity, // full width of the screen
+              margin: const EdgeInsets.all(25),
+              // ignore: deprecated_member_use
+              child: FlatButton(
+                color: Colors.blue,
+                child: const Text(
+                  "Restart Quiz!",
+                  style: TextStyle(
+                    fontSize: 28,
+                    //fontWeight: FontWeight.bold,
+                    //fontFamily: "RobotoMono",
+                  ),
+                ),
+                textColor: Colors.white,
+                onPressed: resetQuiz,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -15,8 +15,16 @@ class Answer extends StatelessWidget {
       child: RaisedButton(
         color: Colors.blue,
         // ignore: prefer_const_constructors
-        child: Text(answerText),
+        child: Text(
+          answerText,
+          style: const TextStyle(
+            fontSize: 28,
+            //fontWeight: FontWeight.bold,
+            //fontFamily: "RobotoMono",
+          ),
+        ),
         onPressed: selectHandler,
+        textColor: Colors.white,
       ),
     );
   }
