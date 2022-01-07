@@ -7,3 +7,5 @@ Developed during the [Flutter & Dart - The Complete Guide [2022]](https://www.ud
 ## TODO:
 - Add a gif to demonstrate the App funcionality.
 - Describe it better, maybe create a short article about it?
+
+![Demo](quiz_app.gif)

@@ -13,6 +13,7 @@ import './question.dart';
 void main() => runApp(QuizApp());
 
 // extends é a keyword utilizada para inheritance de uma classe
+// ignore: use_key_in_widget_constructors
 class QuizApp extends StatefulWidget {
   // we want to change the state stateful
   @override
@@ -58,6 +59,7 @@ class _QuizAppState extends State<QuizApp> {
     print(_questionIndex);
 
     if (_questionIndex < questions.length) {
+      // ignore: avoid_print
       print("We have more questions!");
     }
   }
@@ -93,7 +95,11 @@ class _QuizAppState extends State<QuizApp> {
                 ],
               )
             : const Center(
-                child: Text("You have answered all the questions!"),
+                child: Text(
+                  "You have answered all the questions!",
+                  style: TextStyle(fontSize: 24),
+                  textAlign: TextAlign.center,
+                ),
               ),
       ),
     );
