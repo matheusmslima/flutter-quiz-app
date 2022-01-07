@@ -5,8 +5,8 @@ class Question extends StatelessWidget {
   final String questionText; // adding final tells flutter that we are not
   // changing
 
-  // ignore: prefer_const_constructors_in_immutables
-  Question(this.questionText, {Key key}) : super(key: key);
+  // ignore: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
+  Question(this.questionText);
 
   @override
   Widget build(BuildContext context) {
