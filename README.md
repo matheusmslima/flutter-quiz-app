@@ -8,4 +8,6 @@ Developed during the [Flutter & Dart - The Complete Guide [2022]](https://www.ud
 - Add a gif to demonstrate the App funcionality.
 - Describe it better, maybe create a short article about it?
 
-![Demo](quiz_app.gif)
+<p align="center">
+  <img src="quiz_app.gif" width="150"/>
+</p>

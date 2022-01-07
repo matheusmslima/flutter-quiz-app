@@ -6,16 +6,16 @@ class Question extends StatelessWidget {
   // changing
 
   // ignore: prefer_const_constructors_in_immutables
-  Question(this.questionText);
+  Question(this.questionText, {Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity, // full width of the screen
-      margin: EdgeInsets.all(25),
+      margin: const EdgeInsets.all(25),
       child: Text(
         questionText,
-        style: TextStyle(fontSize: 24),
+        style: const TextStyle(fontSize: 24),
         textAlign: TextAlign.center, //enum? datatype?
       ),
     );
