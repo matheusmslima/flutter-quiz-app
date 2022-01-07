@@ -9,5 +9,5 @@ Developed during the [Flutter & Dart - The Complete Guide [2022]](https://www.ud
 - Describe it better, maybe create a short article about it?
 
 <p align="center">
-  <img src="quiz_app.gif" width="150"/>
+  <img src="quiz_app.gif" width="250"/>
 </p>
