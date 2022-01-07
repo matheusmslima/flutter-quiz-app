@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/answer.dart';
 
 import './question.dart';
 
@@ -30,6 +31,21 @@ class _QuizAppState extends State<QuizApp> {
   //BuildContext is a type of object, context is a object of type BuildContext
   //build needs to return something, this something is a widget
   //anotacao que indica que vou sobrescrever uma classe mãe
+  final questions = const [
+    // maps
+    {
+      'questionText': "What's your favorite color?",
+      'answers': ['Black', 'Red', 'Green', 'White'],
+    },
+    {
+      'questionText': "What's your favorite animal?",
+      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+    },
+    {
+      'questionText': "What's your favorite car?",
+      'answers': ['Ferrari F50', 'AMG C63 GT', 'BMW M8', 'Jaguar F-Type'],
+    },
+  ];
 
   var _questionIndex = 0;
 
@@ -38,17 +54,19 @@ class _QuizAppState extends State<QuizApp> {
       _questionIndex++;
     });
     // print("Answer chosen!");
+    // ignore: avoid_print
     print(_questionIndex);
+
+    if (_questionIndex < questions.length) {
+      print("We have more questions!");
+    }
   }
 
   @override // deliberatly overrinding the default class
   Widget build(BuildContext context) {
     // LIST of questions ...
     // LISTS OF DATA, LISTS OF CONTACTS
-    var questions = [
-      "What's your favorite color?",
-      "What's your favorite animal?",
-    ];
+
     // MaterialApp takes NAMED arguments DONT NEED TO BE IN ORDER
     //const int x = 1;
     //At compile time, the value of x is going to be 1 and will not change.
@@ -59,36 +77,24 @@ class _QuizAppState extends State<QuizApp> {
           // com hot reload
         ),
         // GENERIC TYPES <Widget> list of widgets
-        body: Column(
-          // OLD ... Text(welcomeValdomiro),
-          // ignore: prefer_const_literals_to_create_immutables
-          children: [
-            Question(
-              questions[_questionIndex],
-            ), // i rebuild only this one?
-            // ignore: deprecated_member_use
-            RaisedButton(
-              child: const Text("Answer 1"),
-              onPressed: _answerQuestion, // onPressed takes a function
-              // by adding parentesis here it tries pass the
-              // returned value to onpressed we wnat to pass a pointer
-            ),
-            // ignore: deprecated_member_use
-            RaisedButton(
-              child: const Text("Answer 2"),
-              onPressed: _answerQuestion, // this is a named function
-              // () => print ('answer') anonymous function
-            ),
-            // ignore: deprecated_member_use
-            RaisedButton(
-              child: const Text("Answer 3"),
-              onPressed: _answerQuestion, // or this way () => {for more lines}
-            ),
-            // just to follow along
-            // this is the "correct" one
-            // ElevatedButton(onPressed: onPressed, child: child)
-          ],
-        ),
+        body: _questionIndex < questions.length
+            ? Column(
+                // OLD ... Text(welcomeValdomiro),
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  Question(
+                    questions[_questionIndex]['questionText'] as String,
+                  ),
+                  ...(questions[_questionIndex]['answers']
+                          as List<String>) //spreadop
+                      .map((answer) {
+                    return Answer(_answerQuestion, answer);
+                  }).toList()
+                ],
+              )
+            : const Center(
+                child: Text("You have answered all the questions!"),
+              ),
       ),
     );
   }
